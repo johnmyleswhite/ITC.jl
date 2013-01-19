@@ -10,7 +10,10 @@ type QuasiHyperbolic <: DiscountFunction
 	beta::Float64
 	delta::Float64
 end
-# TODO: GeneralizedHyperbolic, ...
+type GeneralizedHyperbolic <: DiscountFunction
+	alpha::Float64
+	beta::Float64
+end
 
 d(m::Exponential, t::Real) = (m.delta)^t
 d(m::Hyperbolic, t::Real) = 1 / (1 + m.alpha * t)
@@ -21,4 +24,4 @@ function d(m::QuasiHyperbolic, t::Real)
 		m.beta * (m.delta)^t
 	end
 end
-# TODO: GeneralizedHyperbolic, ...
+d(m::GeneralizedHyperbolic, t::Real) = (1 + m.alpha * t)^(-(m.beta / m.alpha))
