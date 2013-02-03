@@ -12,11 +12,15 @@ simulate!(m, inputs)
 
 loglikelihood(m, inputs)
 
-exp_fit = fit(LinearUtility, Exponential, inputs)
+exponential_fit = fit(LinearUtility, Exponential, inputs)
+hyperbolic_fit = fit(LinearUtility, Hyperbolic, inputs)
+quasihyperbolic_fit = fit(LinearUtility, QuasiHyperbolic, inputs)
+generalized_fit = fit(LinearUtility, GeneralizedHyperbolic, inputs)
 
 m.d = Hyperbolic(0.5)
-
 simulate!(m, inputs)
 
-fit(LinearUtility, Exponential, inputs)
-fit(LinearUtility, Hyperbolic, inputs)
+exponential_fit = fit(LinearUtility, Exponential, inputs)
+hyperbolic_fit = fit(LinearUtility, Hyperbolic, inputs)
+quasihyperbolic_fit = fit(LinearUtility, QuasiHyperbolic, inputs)
+generalized_fit = fit(LinearUtility, GeneralizedHyperbolic, inputs)
